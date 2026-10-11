@@ -7,7 +7,7 @@
 // Paste the Access Key that Web3Forms emailed to jesus@jesusdominguezr.com.
 // It is safe to publish: it can only deliver messages to that inbox.
 export const contactForm = {
-  web3formsKey: import.meta.env.VITE_WEB3FORMS_KEY || "16d33c47-2dba-400b-9849-2ec003dfc0e3",
+  web3formsKey: import.meta.env.VITE_WEB3FORMS_KEY || "PEGA_AQUI_TU_ACCESS_KEY",
 };
 
 export const profile = {
@@ -88,17 +88,6 @@ export const ui = {
     error: {
       en: "Something went wrong and the message wasn't sent. Please try again or email me directly.",
       es: "Algo salió mal y el mensaje no se envió. Inténtalo de nuevo o escríbeme directamente por correo.",
-    },
-  },
-    // Pre-filled draft when a visitor clicks the email link (opens their mail app)
-  emailDraft: {
-    subject: {
-      en: "Software Engineer opportunity",
-      es: "Oportunidad como Software Engineer",
-    },
-    body: {
-      en: "Hi Jesús,\n\nI came across your website and I'd like to talk with you about a Software Engineer opportunity at [company].\n\n[Brief description of the role]\n\nWould you be available for a quick call this week?\n\nBest regards,\n[Your name]\n[Your role]",
-      es: "Hola Jesús,\n\nVi tu sitio web y me gustaría platicar contigo sobre una oportunidad como Software Engineer en [empresa].\n\n[Breve descripción del puesto]\n\n¿Tendrías disponibilidad para una llamada breve esta semana?\n\nSaludos,\n[Tu nombre]\n[Tu puesto]",
     },
   },
   copy: { en: "Copy", es: "Copiar" },

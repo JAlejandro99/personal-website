@@ -82,13 +82,8 @@ export default function Contact() {
     if (status === "success" || status === "error") setStatus("idle");
   };
 
-    // Email link → opens the visitor's mail app with a draft in the current language
-  const mailtoDraft = `mailto:${profile.email}?subject=${encodeURIComponent(
-    t(ui.emailDraft.subject)
-  )}&body=${encodeURIComponent(t(ui.emailDraft.body))}`;
-
   const channels = [
-    { icon: HiOutlineEnvelope, label: "Email", value: profile.email, href: mailtoDraft, copy: true },
+    { icon: HiOutlineEnvelope, label: "Email", value: profile.email, href: `mailto:${profile.email}`, copy: true },
     { icon: FaLinkedin, label: "LinkedIn", value: "in/jesus-a-dominguez-r", href: profile.linkedin, external: true },
     { icon: FaGithub, label: "GitHub", value: "JAlejandro99", href: profile.github, external: true },
     { icon: HiOutlinePhone, label: t({ en: "Phone", es: "Teléfono" }), value: profile.phone, href: profile.phoneHref, copy: true },
