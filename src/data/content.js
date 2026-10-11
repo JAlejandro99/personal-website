@@ -3,11 +3,18 @@
 //  Every text field has an English (en) and Spanish (es) version.
 // ─────────────────────────────────────────────────────────────
 
+// Contact form → Web3Forms (https://web3forms.com).
+// Paste the Access Key that Web3Forms emailed to jesus@jesusdominguezr.com.
+// It is safe to publish: it can only deliver messages to that inbox.
+export const contactForm = {
+  web3formsKey: import.meta.env.VITE_WEB3FORMS_KEY || "PEGA_AQUI_TU_ACCESS_KEY",
+};
+
 export const profile = {
   name: "Jesús Alejandro Domínguez Reyes",
   shortName: "Jesús Domínguez",
   initials: "JD",
-  email: "jesusalejandro607@gmail.com",
+  email: "jesus@jesusdominguezr.com",
   phone: "+52 56 1480 4291",
   phoneHref: "tel:+525614804291",
   location: { en: "Mexico City, Mexico", es: "Ciudad de México, México" },
@@ -70,8 +77,17 @@ export const ui = {
     message: { en: "Message", es: "Mensaje" },
     send: { en: "Send message", es: "Enviar mensaje" },
     note: {
-      en: "Opens your email client with the message ready to send.",
-      es: "Abre tu cliente de correo con el mensaje listo para enviar.",
+      en: "Your message goes straight to my inbox. I usually reply within 1–2 days.",
+      es: "Tu mensaje llega directo a mi bandeja. Suelo responder en 1–2 días.",
+    },
+    sending: { en: "Sending…", es: "Enviando…" },
+    success: {
+      en: "Thanks! Your message was sent. I'll get back to you soon.",
+      es: "¡Gracias! Tu mensaje fue enviado. Te responderé pronto.",
+    },
+    error: {
+      en: "Something went wrong and the message wasn't sent. Please try again or email me directly.",
+      es: "Algo salió mal y el mensaje no se envió. Inténtalo de nuevo o escríbeme directamente por correo.",
     },
   },
   copy: { en: "Copy", es: "Copiar" },

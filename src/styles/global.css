@@ -709,3 +709,16 @@ button {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* ── Contact form status ───────────────────────────────── */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.btn:disabled { opacity: 0.7; cursor: progress; transform: none; }
+.form-status {
+  display: flex; gap: 0.5rem; align-items: flex-start;
+  margin: 0; padding: 0.75rem 0.9rem; border-radius: 10px;
+  font-size: 0.9rem; line-height: 1.45;
+}
+.form-status svg { flex: none; font-size: 1.15rem; margin-top: 0.1rem; }
+.form-status a { word-break: break-all; }
+.form-status--ok { background: color-mix(in srgb, #22c55e 14%, transparent); color: var(--heading); border: 1px solid color-mix(in srgb, #22c55e 45%, transparent); }
+.form-status--err { background: color-mix(in srgb, #ef4444 12%, transparent); color: var(--heading); border: 1px solid color-mix(in srgb, #ef4444 45%, transparent); }
