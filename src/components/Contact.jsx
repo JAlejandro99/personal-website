@@ -1,11 +1,11 @@
 import { useState } from "react";
 import {
   HiOutlineEnvelope, HiOutlinePhone, HiOutlineMapPin, HiOutlineClipboard, HiCheck, HiArrowDownTray,
-  HiArrowUpRight,
+  HiArrowUpRight, HiOutlineCheckCircle, HiOutlineExclamationTriangle,
 } from "react-icons/hi2";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { useApp } from "../context.jsx";
-import { profile, ui } from "../data/content.js";
+import { profile, ui, contactForm } from "../data/content.js";
 import Section from "./Section.jsx";
 
 function CopyButton({ value }) {
@@ -28,15 +28,58 @@ function CopyButton({ value }) {
   );
 }
 
+const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+const hasKey = () => contactForm.web3formsKey && !contactForm.web3formsKey.startsWith("PEGA_AQUI");
+
 export default function Contact() {
   const { t } = useApp();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const empty = { name: "", email: "", message: "", botcheck: false };
+  const [form, setForm] = useState(empty);
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Opportunity — ${form.name}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    if (status === "sending") return;
+
+    // No key configured yet → fall back to opening the visitor's email client.
+    if (!hasKey()) {
+      const subject = encodeURIComponent(`Opportunity — ${form.name}`);
+      const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
+      window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const res = await fetch(WEB3FORMS_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: contactForm.web3formsKey,
+          subject: `Nuevo mensaje desde jesusdominguezr.com — ${form.name}`,
+          from_name: "jesusdominguezr.com",
+          name: form.name,
+          email: form.email,
+          replyto: form.email,
+          message: form.message,
+          botcheck: form.botcheck,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success !== false) {
+        setStatus("success");
+        setForm(empty);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  const update = (field) => (e) => {
+    setForm({ ...form, [field]: e.target.value });
+    if (status === "success" || status === "error") setStatus("idle");
   };
 
   const channels = [
@@ -83,7 +126,7 @@ export default function Contact() {
             <input
               required
               value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              onChange={update("name")}
               autoComplete="name"
             />
           </label>
@@ -93,7 +136,7 @@ export default function Contact() {
               required
               type="email"
               value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              onChange={update("email")}
               autoComplete="email"
             />
           </label>
@@ -103,13 +146,37 @@ export default function Contact() {
               required
               rows={5}
               value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              onChange={update("message")}
             />
           </label>
-          <button type="submit" className="btn btn--primary btn--block">
-            <HiOutlineEnvelope /> {t(ui.form.send)}
+          {/* Honeypot: hidden from people, bots fill it and get rejected */}
+          <input
+            type="checkbox"
+            name="botcheck"
+            className="hp"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            checked={form.botcheck}
+            onChange={(e) => setForm({ ...form, botcheck: e.target.checked })}
+          />
+          <button type="submit" className="btn btn--primary btn--block" disabled={status === "sending"}>
+            <HiOutlineEnvelope /> {status === "sending" ? t(ui.form.sending) : t(ui.form.send)}
           </button>
-          <p className="muted small">{t(ui.form.note)}</p>
+          <div aria-live="polite">
+            {status === "success" && (
+              <p className="form-status form-status--ok">
+                <HiOutlineCheckCircle /> {t(ui.form.success)}
+              </p>
+            )}
+            {status === "error" && (
+              <p className="form-status form-status--err">
+                <HiOutlineExclamationTriangle /> {t(ui.form.error)}{" "}
+                <a href={`mailto:${profile.email}`}>{profile.email}</a>
+              </p>
+            )}
+          </div>
+          {status !== "success" && hasKey() && <p className="muted small">{t(ui.form.note)}</p>}
         </form>
       </div>
     </Section>
