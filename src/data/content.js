@@ -21,7 +21,7 @@ export const profile = {
   website: "https://jesusdominguezr.com",
   linkedin: "https://www.linkedin.com/in/jesus-a-dominguez-r",
   github: "https://github.com/JAlejandro99",
-  cvFile: "/Jesus_Dominguez_Reyes_Software_Engineer_CV.pdf",
+  cvFile: "/Jesus_Dominguez_Resume.pdf",
   role: {
     en: "Software Engineer · Backend & Data",
     es: "Ingeniero de Software · Backend y Datos",
@@ -101,6 +101,10 @@ export const ui = {
       es: "Hola Jesús,\n\nVi tu sitio web y me gustaría platicar contigo sobre una oportunidad como Software Engineer en [empresa].\n\n[Breve descripción del puesto]\n\n¿Tendrías disponibilidad para una llamada breve esta semana?\n\nSaludos,\n[Tu nombre]\n[Tu puesto]",
     },
   },
+  skillsHint: {
+    en: "Click a technology to see how I've used it.",
+    es: "Da clic en una tecnología para ver cómo la he usado.",
+  },
   copy: { en: "Copy", es: "Copiar" },
   copied: { en: "Copied!", es: "¡Copiado!" },
   footer: { en: "Designed & built with React.", es: "Diseñado y construido con React." },
@@ -134,80 +138,95 @@ export const about = {
     { en: "Design patterns & clean code", es: "Patrones de diseño y código limpio" },
     { en: "Performance optimization", es: "Optimización de rendimiento" },
   ],
+  beyond: {
+    title: { en: "Beyond the code", es: "Más allá del código" },
+    text: {
+      en: "Off the clock I play soulslike games like Elden Ring and Sekiro, plus League of Legends. They've taught me patience and persistence: I don't give up on a hard boss, or on a hard bug.",
+      es: "En mi tiempo libre juego soulslike como Elden Ring y Sekiro, y también League of Legends. Me han enseñado paciencia y constancia: no me rindo ante un jefe difícil, ni ante un bug difícil.",
+    },
+  },
   languages: [
     { name: { en: "Spanish", es: "Español" }, level: { en: "Native", es: "Nativo" }, pct: 100 },
-    { name: { en: "English", es: "Inglés" }, level: { en: "Intermediate", es: "Intermedio" }, pct: 65 },
+    { name: { en: "English", es: "Inglés" }, level: { en: "Upper-Intermediate (B2)", es: "Intermedio-avanzado (B2)" }, pct: 75 },
   ],
 };
 
 export const experience = [
   {
-    company: "AlgorithIA",
+    company: "AlgorithIA · Grupo Salinas",
     role: { en: "Backend Developer", es: "Desarrollador Backend" },
     start: { en: "Aug 2023", es: "Ago 2023" },
     end: null,
-    stack: ["Python", "Spring Boot", "PySpark", "AWS Lambda", "Great Expectations", "Cloudera", "Streamlit"],
+    stack: ["Python", "Spring Boot", "JWT", "PySpark", "Great Expectations", "AWS Lambda", "Cloudera", "Streamlit", "Claude"],
     bullets: [
       {
-        en: "Designed a Python library for secure execution of salary-estimation models, separating license enforcement, input validation, model protection, usage auditing and business logic.",
-        es: "Diseñé una librería en Python para la ejecución segura de modelos de estimación salarial, separando licenciamiento, validación de entradas, protección del modelo, auditoría de uso y lógica de negocio.",
+        en: "Led the follow-up of 2 projects: broke the designs down into macro tasks and subtasks, tracked progress and completed the remaining development.",
+        es: "Lideré el seguimiento de 2 proyectos: descompuse el diseño en macro tareas y subtareas, di seguimiento al avance y culminé el desarrollo faltante.",
       },
       {
-        en: "Implemented signed-license validation with machine-specific data to decrypt protected model weights, plus encrypted, hash-chained usage auditing with blockchain-backed integrity verification.",
-        es: "Implementé validación de licencias firmadas con datos específicos del equipo para descifrar pesos protegidos del modelo, además de auditoría de uso cifrada y encadenada con hashes, con verificación de integridad respaldada en blockchain.",
+        en: "Designed a Python library to securely run salary-estimation models, with signed machine-bound licenses, encrypted model weights and hash-chained, blockchain-backed audit logs.",
+        es: "Diseñé una librería en Python para ejecutar de forma segura modelos de estimación salarial, con licencias firmadas ligadas al equipo, pesos del modelo cifrados y bitácoras de auditoría encadenadas con hashes y respaldadas en blockchain.",
       },
       {
-        en: "Kept execution under 30 ms, with roughly half of runtime in inference and the rest in security controls.",
-        es: "Mantuve la ejecución por debajo de 30 ms, con aproximadamente la mitad del tiempo en inferencia y el resto en controles de seguridad.",
+        en: "Kept end-to-end execution under 30 ms, with roughly half of runtime in inference and the rest in security controls.",
+        es: "Mantuve la ejecución completa por debajo de 30 ms, con aproximadamente la mitad del tiempo en inferencia y el resto en controles de seguridad.",
       },
       {
-        en: "Built the initial Great Expectations workflow for a data-validation platform (Python, PySpark) covering enterprise tables with billions of records.",
-        es: "Construí el flujo inicial de Great Expectations para una plataforma de validación de datos (Python, PySpark) sobre tablas empresariales con miles de millones de registros.",
+        en: "Built REST APIs secured with JWT authentication and authorization, meeting a 200 ms latency target.",
+        es: "Construí APIs REST protegidas con autenticación y autorización JWT, cumpliendo un objetivo de latencia de 200 ms.",
       },
       {
-        en: "Tuned Spark session configurations that improved query response times on Hive and Impala datasets in Cloudera Machine Learning.",
-        es: "Ajusté configuraciones de sesión de Spark que mejoraron los tiempos de respuesta de consultas sobre Hive e Impala en Cloudera Machine Learning.",
+        en: "Developed Python REST APIs for AI models and Spring Boot APIs for statistical data; refactored AWS Lambda functions with the Builder Pattern.",
+        es: "Desarrollé APIs REST en Python para modelos de IA y APIs en Spring Boot para información estadística; refactoricé funciones AWS Lambda con el patrón Builder.",
       },
       {
-        en: "Developed Python REST APIs for AI models and Spring Boot APIs for statistical information; refactored AWS Lambda functions and a Streamlit dashboard with the Builder Pattern.",
-        es: "Desarrollé APIs REST en Python para modelos de IA y APIs en Spring Boot para información estadística; refactoricé funciones AWS Lambda y un dashboard en Streamlit con el patrón Builder.",
+        en: "Built the Great Expectations + PySpark data-validation workflow for enterprise tables with billions of records.",
+        es: "Construí el flujo de validación de datos con Great Expectations y PySpark para tablas empresariales con miles de millones de registros.",
+      },
+      {
+        en: "Fixed out-of-memory crashes in multi-table validation runs by releasing Spark memory after each table load.",
+        es: "Resolví caídas por falta de memoria al validar múltiples tablas liberando la memoria de Spark después de cargar cada tabla.",
+      },
+      {
+        en: "Tuned Spark session configurations, improving query response times on Hive and Impala datasets in Cloudera Machine Learning.",
+        es: "Ajusté configuraciones de sesión de Spark, mejorando los tiempos de respuesta de consultas sobre Hive e Impala en Cloudera Machine Learning.",
+      },
+      {
+        en: "Built a Streamlit dashboard to visualize data-quality results across enterprise tables.",
+        es: "Construí un dashboard en Streamlit para visualizar los resultados de calidad de datos de las tablas empresariales.",
+      },
+      {
+        en: "Use Claude as an AI coding assistant, cutting development time by ~30% and unit-test writing time by ~50%.",
+        es: "Uso Claude como asistente de programación con IA, reduciendo ~30% el tiempo de desarrollo y ~50% el tiempo de escribir pruebas unitarias.",
       },
     ],
   },
   {
-    company: "Accionamos Tus Datos (ATD)",
+    company: "Accionamos Tus Datos (ATD) · Grupo Salinas",
     role: { en: "Backend Developer", es: "Desarrollador Backend" },
     start: { en: "Aug 2022", es: "Ago 2022" },
     end: { en: "Aug 2023", es: "Ago 2023" },
-    stack: ["Java", "Spring Boot", "Grails", "MongoDB", "MySQL", "GraphQL", "JWT", "Firebase", "Mockito", "Spock"],
+    stack: ["Java", "Spring Boot", "Grails", "MongoDB", "MySQL", "GraphQL", "JWT", "Mockito", "Spock"],
     bullets: [
       {
-        en: "Built Spring Boot features to retrieve bank accounts and categorized transactions through an external financial-data provider (Controller, Service, Repository and DTO layers on MongoDB).",
-        es: "Desarrollé funcionalidades en Spring Boot para obtener cuentas bancarias y transacciones categorizadas a través de un proveedor externo de datos financieros (capas Controller, Service, Repository y DTO sobre MongoDB).",
+        en: "Built Spring Boot services to retrieve bank accounts and categorized transactions from an external financial-data provider (Controller, Service, Repository and DTO layers on MongoDB).",
+        es: "Construí servicios en Spring Boot para obtener cuentas bancarias y transacciones categorizadas de un proveedor externo de datos financieros (capas Controller, Service, Repository y DTO sobre MongoDB).",
       },
       {
-        en: "Designed REST endpoints from scratch with multi-criteria filtering and GraphQL where appropriate.",
-        es: "Diseñé endpoints REST desde cero con filtros por múltiples criterios y GraphQL cuando era conveniente.",
+        en: "Implemented JWT authentication and authorization, including token generation, cryptographic signing and validation.",
+        es: "Implementé autenticación y autorización con JWT, incluyendo generación de tokens, firma criptográfica y validación.",
       },
       {
-        en: "Implemented JWT authentication & authorization: token generation, cryptographic signing and validation.",
-        es: "Implementé autenticación y autorización con JWT: generación, firma criptográfica y validación de tokens.",
+        en: "Integrated external financial APIs and webhook-based async processing; designed REST endpoints with multi-criteria filtering and GraphQL where appropriate.",
+        es: "Integré APIs financieras externas y procesamiento asíncrono basado en webhooks; diseñé endpoints REST con filtrado multicriterio y GraphQL donde convenía.",
       },
       {
-        en: "Integrated external financial APIs and webhook-based async processing; debugged failures in asynchronous workflows.",
-        es: "Integré APIs financieras externas y procesamiento asíncrono con webhooks; depuré fallas en flujos asíncronos.",
+        en: "Took ownership of an internal Java SDK (Retrofit) after the tech lead's departure while mentoring a junior teammate.",
+        es: "Asumí el mantenimiento de un SDK interno en Java (Retrofit) tras la salida del tech lead, mientras apoyaba a un compañero junior.",
       },
       {
-        en: "Enhanced an internal Java SDK (Retrofit) and owned it after the tech lead's departure while supporting a junior teammate.",
-        es: "Mejoré un SDK interno en Java (Retrofit) y quedé a cargo de él tras la salida del líder técnico, apoyando a un compañero junior.",
-      },
-      {
-        en: "Shipped endpoints and persistence across three Grails/Groovy microservices for a banking transaction-categorization platform.",
-        es: "Entregué endpoints y persistencia en tres microservicios Grails/Groovy para una plataforma de categorización de transacciones bancarias.",
-      },
-      {
-        en: "Built a Firebase push-notification service, web scraping with Amazon Rekognition, and unit tests with Mockito and Spock.",
-        es: "Construí un servicio de notificaciones push con Firebase, web scraping con Amazon Rekognition y pruebas unitarias con Mockito y Spock.",
+        en: "Shipped features across three Grails/Groovy microservices and a push-notification service; wrote unit tests with Mockito and Spock.",
+        es: "Entregué funcionalidades en tres microservicios Grails/Groovy y un servicio de notificaciones push; escribí pruebas unitarias con Mockito y Spock.",
       },
     ],
   },
@@ -284,61 +303,61 @@ export const projects = [
 ];
 
 // `icon` keys are mapped to logos in src/components/Skills.jsx
+// `desc` is shown when a visitor clicks the technology
 export const skillGroups = [
   {
     title: { en: "Languages", es: "Lenguajes" },
     items: [
-      { name: "Java", icon: "java" },
-      { name: "Python", icon: "python" },
-      { name: "JavaScript", icon: "javascript" },
-      { name: "SQL", icon: "sql" },
-      { name: "Groovy", icon: "groovy" },
-      { name: "C", icon: "c" },
+      { name: "Java", icon: "java", desc: { en: "Main language at ATD: Spring Boot banking services and an internal Java SDK built with Retrofit.", es: "Lenguaje principal en ATD: servicios bancarios en Spring Boot y un SDK interno en Java construido con Retrofit." } },
+      { name: "Python", icon: "python", desc: { en: "Main language at AlgorithIA: a secure ML-model runtime, REST APIs for AI models and PySpark data validation.", es: "Lenguaje principal en AlgorithIA: un runtime seguro para modelos de ML, APIs REST para modelos de IA y validación de datos con PySpark." } },
+      { name: "JavaScript", icon: "javascript", desc: { en: "Front ends with Vue.js and a Node.js backend in university projects, plus this React website.", es: "Front ends con Vue.js y un backend en Node.js en proyectos universitarios, además de este sitio en React." } },
+      { name: "SQL", icon: "sql", desc: { en: "Queries on MySQL, Hive and Impala for application data, validation and analytics.", es: "Consultas en MySQL, Hive e Impala para datos de aplicaciones, validación y análisis." } },
+      { name: "Groovy", icon: "groovy", desc: { en: "Grails microservices and Spock unit tests at ATD.", es: "Microservicios en Grails y pruebas unitarias con Spock en ATD." } },
+      { name: "C", icon: "c", desc: { en: "Foundation from ESCOM: algorithms, data structures and low-level programming.", es: "Base de la ESCOM: algoritmos, estructuras de datos y programación de bajo nivel." } },
     ],
   },
   {
     title: { en: "Backend & Frameworks", es: "Backend y frameworks" },
     items: [
-      { name: "Spring Boot", icon: "spring" },
-      { name: "Flask", icon: "flask" },
-      { name: "Grails", icon: "grails" },
-      { name: "Node.js", icon: "node" },
-      { name: "Vue.js", icon: "vue" },
-      { name: "GraphQL", icon: "graphql" },
-      { name: "JWT", icon: "jwt" },
+      { name: "Spring Boot", icon: "spring", desc: { en: "Banking APIs at ATD (Controller, Service, Repository and DTO layers) and statistics APIs at AlgorithIA.", es: "APIs bancarias en ATD (capas Controller, Service, Repository y DTO) y APIs de estadística en AlgorithIA." } },
+      { name: "Flask", icon: "flask", desc: { en: "Python REST APIs that serve AI models.", es: "APIs REST en Python que exponen modelos de IA." } },
+      { name: "Grails", icon: "grails", desc: { en: "Endpoints and persistence across three microservices of a banking transaction-categorization platform.", es: "Endpoints y persistencia en tres microservicios de una plataforma de categorización de transacciones bancarias." } },
+      { name: "Node.js", icon: "node", desc: { en: "Backend of a real-time vital-signs monitor fed by Arduino sensors (ESCOM).", es: "Backend de un monitor de signos vitales en tiempo real alimentado por sensores Arduino (ESCOM)." } },
+      { name: "Vue.js", icon: "vue", desc: { en: "Real-time front end of the vital-signs monitor (ESCOM).", es: "Front end en tiempo real del monitor de signos vitales (ESCOM)." } },
+      { name: "GraphQL", icon: "graphql", desc: { en: "Flexible queries alongside REST endpoints with multi-criteria filtering at ATD.", es: "Consultas flexibles junto a endpoints REST con filtrado multicriterio en ATD." } },
+      { name: "JWT", icon: "jwt", desc: { en: "Token generation, signing and validation at ATD; JWT-secured APIs under a 200 ms latency target at AlgorithIA.", es: "Generación, firma y validación de tokens en ATD; APIs protegidas con JWT bajo un objetivo de 200 ms en AlgorithIA." } },
     ],
   },
   {
     title: { en: "Data & AI", es: "Datos e IA" },
     items: [
-      { name: "PySpark", icon: "spark" },
-      { name: "Great Expectations", icon: "ge" },
-      { name: "Hive", icon: "hive" },
-      { name: "Cloudera", icon: "cloudera" },
-      { name: "Streamlit", icon: "streamlit" },
-      { name: "Machine Learning", icon: "ml" },
+      { name: "PySpark", icon: "spark", desc: { en: "Validation of enterprise tables with billions of records; fixed out-of-memory crashes by freeing memory per table.", es: "Validación de tablas empresariales con miles de millones de registros; resolví caídas por memoria liberándola por tabla." } },
+      { name: "Great Expectations", icon: "ge", desc: { en: "Built the data-validation workflow that standardizes quality checks on enterprise tables.", es: "Construí el flujo de validación que estandariza los controles de calidad sobre tablas empresariales." } },
+      { name: "Hive", icon: "hive", desc: { en: "Querying enterprise datasets; tuned Spark sessions to speed up Hive and Impala queries.", es: "Consulta de datasets empresariales; ajusté sesiones de Spark para acelerar consultas en Hive e Impala." } },
+      { name: "Cloudera", icon: "cloudera", desc: { en: "Cloudera Machine Learning is where the data-validation jobs run.", es: "Cloudera Machine Learning es donde corren los procesos de validación de datos." } },
+      { name: "Streamlit", icon: "streamlit", desc: { en: "Dashboard to visualize data-quality results, refactored with the Builder Pattern.", es: "Dashboard para visualizar resultados de calidad de datos, refactorizado con el patrón Builder." } },
+      { name: "Machine Learning", icon: "ml", desc: { en: "Secure delivery of salary-estimation models at AlgorithIA and a neural-network fingerprint recognizer at ESCOM.", es: "Entrega segura de modelos de estimación salarial en AlgorithIA y un reconocedor de huellas con redes neuronales en la ESCOM." } },
     ],
   },
   {
     title: { en: "Cloud & Databases", es: "Nube y bases de datos" },
     items: [
-      { name: "AWS Lambda", icon: "lambda" },
-      { name: "Rekognition", icon: "aws" },
-      { name: "Azure", icon: "azure" },
-      { name: "Firebase", icon: "firebase" },
-      { name: "MongoDB", icon: "mongodb" },
-      { name: "MySQL", icon: "mysql" },
+      { name: "AWS Lambda", icon: "lambda", desc: { en: "Refactored serverless functions with the Builder Pattern for maintainability.", es: "Refactoricé funciones serverless con el patrón Builder para hacerlas más mantenibles." } },
+      { name: "Azure", icon: "azure", desc: { en: "Microsoft Certified: Azure Fundamentals (AZ-900).", es: "Certificación Microsoft Azure Fundamentals (AZ-900)." } },
+      { name: "MongoDB", icon: "mongodb", desc: { en: "Persistence for bank accounts and categorized transactions in Spring Boot services.", es: "Persistencia de cuentas bancarias y transacciones categorizadas en servicios Spring Boot." } },
+      { name: "MySQL", icon: "mysql", desc: { en: "Relational persistence for ATD's backend services.", es: "Persistencia relacional para los servicios backend de ATD." } },
     ],
   },
   {
     title: { en: "Engineering Practices", es: "Prácticas de ingeniería" },
     items: [
-      { name: "Design Patterns", icon: "patterns" },
-      { name: "Microservices", icon: "micro" },
-      { name: "Mockito / Spock", icon: "test" },
-      { name: "Git", icon: "git" },
-      { name: "Gradle", icon: "gradle" },
-      { name: "Scrum / Kanban", icon: "agile" },
+      { name: "Design Patterns", icon: "patterns", desc: { en: "Builder Pattern refactors and layered architectures that keep code reusable and testable.", es: "Refactors con el patrón Builder y arquitecturas por capas que mantienen el código reutilizable y testeable." } },
+      { name: "Microservices", icon: "micro", desc: { en: "Shipped features across three Grails microservices.", es: "Entregué funcionalidades en tres microservicios en Grails." } },
+      { name: "Mockito / Spock", icon: "test", desc: { en: "Unit tests for Java and Groovy services at ATD.", es: "Pruebas unitarias para servicios Java y Groovy en ATD." } },
+      { name: "Claude (AI)", icon: "claude", desc: { en: "AI coding assistant: ~30% less development time and ~50% less time writing unit tests.", es: "Asistente de programación con IA: ~30% menos tiempo de desarrollo y ~50% menos tiempo escribiendo pruebas unitarias." } },
+      { name: "Git", icon: "git", desc: { en: "Version control with a feature → develop → main branching flow and pull requests.", es: "Control de versiones con flujo de ramas feature → develop → main y pull requests." } },
+      { name: "Gradle", icon: "gradle", desc: { en: "Builds and dependency management for Java and Grails projects.", es: "Compilación y manejo de dependencias en proyectos Java y Grails." } },
+      { name: "Scrum / Kanban", icon: "agile", desc: { en: "Agile teams; broke project designs into macro tasks and subtasks to track delivery.", es: "Equipos ágiles; descompuse diseños de proyecto en macro tareas y subtareas para dar seguimiento a la entrega." } },
     ],
   },
 ];
