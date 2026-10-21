@@ -492,7 +492,14 @@ button {
 .skill-group:hover { border-color: color-mix(in srgb, var(--accent) 45%, transparent); }
 .skill-group h3 { font-size: 1rem; margin-bottom: 1.1rem; }
 .skill-group ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+.skills__hint { display: flex; align-items: center; gap: 0.45rem; margin: -0.6rem 0 1.4rem; font-size: 0.92rem; }
+.skills__hint svg { color: var(--accent-2); font-size: 1.1rem; flex: none; }
 .skill {
+  width: 100%;
+  border: 1px solid transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.65rem;
@@ -504,7 +511,22 @@ button {
   color: var(--heading);
   transition: transform 0.2s;
 }
-.skill:hover { transform: translateY(-2px); }
+.skill:hover { transform: translateY(-2px); border-color: color-mix(in srgb, var(--accent) 35%, transparent); }
+.skill.is-open { border-color: var(--accent); background: var(--accent-soft); }
+.skill-detail { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.25s ease; }
+.skill-detail > p { overflow: hidden; margin: 0; }
+.skill-detail.is-open { grid-template-rows: 1fr; }
+.skill-detail.is-open > p {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 11px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-2);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.skill-detail strong { color: var(--heading); }
+@media (prefers-reduced-motion: reduce) { .skill-detail { transition: none; } }
 .skill__icon {
   display: grid;
   place-items: center;
@@ -722,3 +744,13 @@ button {
 .form-status a { word-break: break-all; }
 .form-status--ok { background: color-mix(in srgb, #22c55e 14%, transparent); color: var(--heading); border: 1px solid color-mix(in srgb, #22c55e 45%, transparent); }
 .form-status--err { background: color-mix(in srgb, #ef4444 12%, transparent); color: var(--heading); border: 1px solid color-mix(in srgb, #ef4444 45%, transparent); }
+
+/* beyond the code */
+.beyond { display: flex; gap: 1rem; align-items: flex-start; padding: 1.1rem 1.3rem; margin-top: 1.6rem; }
+.beyond__icon {
+  display: grid; place-items: center; flex: none;
+  width: 40px; height: 40px; border-radius: 11px;
+  background: var(--accent-soft); color: var(--accent-2); font-size: 1.35rem;
+}
+.beyond h4 { margin: 0 0 0.3rem; font-size: 0.95rem; color: var(--heading); }
+.beyond p { margin: 0; font-size: 0.93rem; color: var(--muted); line-height: 1.55; }

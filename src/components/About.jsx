@@ -1,4 +1,5 @@
 import { HiCheck } from "react-icons/hi2";
+import { TbDeviceGamepad2 } from "react-icons/tb";
 import { useApp } from "../context.jsx";
 import { about, profile, ui } from "../data/content.js";
 import Section from "./Section.jsx";
@@ -47,6 +48,15 @@ export default function About() {
               </li>
             ))}
           </ul>
+          <div className="beyond card">
+            <span className="beyond__icon" aria-hidden="true">
+              <TbDeviceGamepad2 />
+            </span>
+            <div>
+              <h4>{t(about.beyond.title)}</h4>
+              <p>{t(about.beyond.text)}</p>
+            </div>
+          </div>
         </div>
       </div>
     </Section>
