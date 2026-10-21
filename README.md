@@ -34,7 +34,7 @@ npm run preview   # para probar el build
 Todo el texto está en **`src/data/content.js`** (experiencia, proyectos, skills, contacto, etc.), en inglés y español.
 
 - **Foto de perfil:** coloca tu foto como `public/profile.jpg` y en `content.js` agrega `photo: "/profile.jpg",` dentro de `profile`.
-- **CV:** reemplaza `public/Jesus_Dominguez_Reyes_Software_Engineer_CV.pdf` con la versión nueva (mismo nombre).
+- **CV:** reemplaza `public/Jesus_Dominguez_Resume.pdf` con la versión nueva (mismo nombre).
 - **Nuevo proyecto:** agrega un objeto al arreglo `projects`. El campo `art` elige la ilustración (`secure`, `data`, `fintech`, `micro`, `fingerprint`, `vitals`).
 
 ## Publicar con tu dominio (recomendado: Vercel, gratis)
